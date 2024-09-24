@@ -2,16 +2,16 @@ import cv2
 import numpy as np
 
 # 加载 YOLO 模型
-net = cv2.dnn.readNet("/Users/sheldon/WorkSpace/Yolov3/yolov3.weights", "/Users/sheldon/WorkSpace/Yolov3/yolov3.cfg")
+net = cv2.dnn.readNet("../yolov3.weights", "../yolov3.cfg")
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
 
 # 读取类别名称
-with open("/Users/sheldon/WorkSpace/Yolov3/coco.names", "r") as f:
+with open("../coco.names", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 
 # 打开摄像头
-cap = cv2.VideoCapture(0)  # 0 表示系统的默认摄像头
+cap = cv2.VideoCapture(61)  # 0 表示系统的默认摄像头
 
 while True:
     # 从摄像头读取帧
